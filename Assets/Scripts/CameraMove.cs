@@ -5,14 +5,15 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public GameObject SnakeHead;
-    public Vector3 PlatformToCameraOffset;
-    public float Speed;
+    Vector3 Target;
+    public float speed;
 
     private void Update()
     {
-        //Vector3 targetPosition = SnakeHead.transform.position + PlatformToCameraOffset;
-        //transform.position = Vector3.MoveTowards(transform.position, targetPosition, Speed * Time.deltaTime);
-        transform.position = Vector3.Lerp(transform.position, SnakeHead.transform.position + PlatformToCameraOffset, Time.deltaTime * Speed);
+                
+        Target = new Vector3(transform.position.x, transform.position.y, SnakeHead.transform.position.z - 2f);
+        Vector3 currentPosition = Vector3.Lerp(transform.position, Target, speed * Time.deltaTime);
+        transform.position = currentPosition;  
 
     }
 }

@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07086cc6a2a6fc645b559ec486224099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 1
   RigidbodyHead: {fileID: 21483280}
 --- !u!54 &21483280
 Rigidbody:
@@ -444,5 +444,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeHead: {fileID: 21483274}
-  PlatformToCameraOffset: {x: 0, y: 0, z: 0}
-  Speed: 1
+  speed: 3

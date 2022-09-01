@@ -8,11 +8,11 @@ public class CameraMove : MonoBehaviour
     Vector3 Target;
     public float speed;
 
-    private void Update()
+    private void FixedUpdate()
     {
                 
         Target = new Vector3(transform.position.x, transform.position.y, SnakeHead.transform.position.z - 2f);
-        Vector3 currentPosition = Vector3.Lerp(transform.position, Target, speed * Time.deltaTime);
+        Vector3 currentPosition = Vector3.Slerp(transform.position, Target, speed * Time.deltaTime);
         transform.position = currentPosition;  
 
     }

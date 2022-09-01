@@ -234,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07086cc6a2a6fc645b559ec486224099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   RigidbodyHead: {fileID: 21483280}
+  sensitivity: 50
 --- !u!54 &21483280
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -444,4 +445,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeHead: {fileID: 21483274}
-  speed: 3
+  speed: 100

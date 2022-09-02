@@ -25,7 +25,11 @@ public class SnakeTail : MonoBehaviour
 
         if(distance > circleDiameter)
         {
-            positions.Insert(0, SnakeHead.position);
+
+            //Направление от старого положения головы до нового положения головы
+            Vector3 direction = (SnakeHead.position - positions[0]).normalized;
+
+            positions.Insert(0, positions[0] + direction * circleDiameter);
             positions.RemoveAt(positions.Count - 1);
 
             distance -= circleDiameter;

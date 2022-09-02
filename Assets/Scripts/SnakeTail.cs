@@ -23,7 +23,16 @@ public class SnakeTail : MonoBehaviour
     {
         float distance = (SnakeHead.position - positions[0]).magnitude;
 
-        if(distance > circleDiameter)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            AddCircle();
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            RemoveCircle();
+        }
+
+        if (distance > circleDiameter)
         {
 
             //Направление от старого положения головы до нового положения головы
@@ -35,9 +44,9 @@ public class SnakeTail : MonoBehaviour
             distance -= circleDiameter;
         }
 
-        for(int i = 0; i < snakeCircles.Count; i++)
+        for (int i = 0; i < snakeCircles.Count; i++)
         {
-            snakeCircles[i].position = Vector3.Lerp(positions[i + 1], positions[i], distance/circleDiameter);
+            snakeCircles[i].position = Vector3.Lerp(positions[i + 1], positions[i], distance / circleDiameter);
         }
     }
     public void AddCircle()
@@ -45,5 +54,12 @@ public class SnakeTail : MonoBehaviour
         Transform circle = Instantiate(SnakePart, positions[positions.Count - 1], Quaternion.identity, transform);
         snakeCircles.Add(circle);
         positions.Add(circle.position);
+    }
+
+    public void RemoveCircle()
+    {
+        Destroy(snakeCircles[0].gameObject);
+        snakeCircles.RemoveAt(0);
+        positions.RemoveAt(1);
     }
 }

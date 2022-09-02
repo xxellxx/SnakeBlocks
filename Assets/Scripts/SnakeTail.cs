@@ -12,10 +12,16 @@ public class SnakeTail : MonoBehaviour
 
     public float circleDiameter;
 
+    public TextMesh SnakeCountText;
+
+    int snakeCount = 0;
+
 
     private void Start()
     {
         positions.Add(SnakeHead.position);
+        SnakeCountText.text = snakeCount + "";
+
         AddCircle();
         AddCircle();
     }
@@ -54,6 +60,8 @@ public class SnakeTail : MonoBehaviour
         Transform circle = Instantiate(SnakePart, positions[positions.Count - 1], Quaternion.identity, transform);
         snakeCircles.Add(circle);
         positions.Add(circle.position);
+        snakeCount++;
+        SnakeCountText.text = snakeCount + "";
     }
 
     public void RemoveCircle()
@@ -61,5 +69,7 @@ public class SnakeTail : MonoBehaviour
         Destroy(snakeCircles[0].gameObject);
         snakeCircles.RemoveAt(0);
         positions.RemoveAt(1);
+        snakeCount--;
+        SnakeCountText.text = snakeCount + "";
     }
 }

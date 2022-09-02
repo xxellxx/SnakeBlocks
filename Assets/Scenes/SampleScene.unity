@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 21483275}
   - component: {fileID: 21483280}
   - component: {fileID: 21483279}
+  - component: {fileID: 21483281}
   m_Layer: 0
   m_Name: SnakeHead
   m_TagString: Untagged
@@ -253,6 +254,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &21483281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21483274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a013b71c3af42a46b2cce72ef37d1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnakeHead: {fileID: 21483278}
+  SnakePart: {fileID: 6838834876819594237, guid: 46994852de928214aa255da85695cfb6, type: 3}
+  circleDiameter: 0.35
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

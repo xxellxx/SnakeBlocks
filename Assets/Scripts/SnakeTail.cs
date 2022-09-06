@@ -7,6 +7,8 @@ public class SnakeTail : MonoBehaviour
     public Transform SnakeHead;
     public Transform SnakePart;
 
+    public GameManagerScript GM;
+
     List<Transform> snakeCircles = new List<Transform>();
     List<Vector3> positions = new List<Vector3>();
 
@@ -66,10 +68,18 @@ public class SnakeTail : MonoBehaviour
 
     public void RemoveCircle()
     {
-        Destroy(snakeCircles[0].gameObject);
-        snakeCircles.RemoveAt(0);
-        positions.RemoveAt(1);
-        snakeCount--;
-        SnakeCountText.text = snakeCount + "";
+        if(snakeCount >= 2)
+        {
+            Destroy(snakeCircles[0].gameObject);
+            snakeCircles.RemoveAt(0);
+            positions.RemoveAt(1);
+            snakeCount--;
+            SnakeCountText.text = snakeCount + "";
+        }
+        else
+        {
+            GM.OnPlayerDied();
+        }
+        
     }
 }

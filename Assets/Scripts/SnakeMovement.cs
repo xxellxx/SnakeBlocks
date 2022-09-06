@@ -7,7 +7,7 @@ public class SnakeMovement : MonoBehaviour
     public float speed;
     public Rigidbody RigidbodyHead;
 
-    private Vector3 _previousMousePosition;    
+    //private Vector3 _previousMousePosition;    
     public float sensitivity;
 
     private Vector3 touchLastPos;

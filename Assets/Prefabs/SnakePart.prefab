@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3738611432031993720}
   - component: {fileID: 2673961188786407027}
   - component: {fileID: 1347050484598293142}
-  - component: {fileID: 2851850657949236623}
-  - component: {fileID: 6076314877454646081}
   m_Layer: 0
   m_Name: SnakePart
   m_TagString: Untagged
@@ -116,33 +114,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2851850657949236623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081147998625003635}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07086cc6a2a6fc645b559ec486224099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  RigidbodyHead: {fileID: 1347050484598293142}
-  sensitivity: 50
---- !u!114 &6076314877454646081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081147998625003635}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a013b71c3af42a46b2cce72ef37d1ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SnakeHead: {fileID: 6838834876819594237}
-  SnakePart: {fileID: 0}
-  circleDiameter: 0.5

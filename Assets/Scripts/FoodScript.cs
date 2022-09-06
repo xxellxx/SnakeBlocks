@@ -6,18 +6,22 @@ public class FoodScript : MonoBehaviour
 {
     int foodAmount;
     public TextMesh foodAmountText;
-    public Collider SnakeHead;
-    public SnakeTail SnakeTail;
+    GameObject SnakeHead;
+    SnakeTail SnakeTail;
+    Collider SnakeHeadCollider;
     // Start is called before the first frame update
     void Start()
     {
         foodAmount = Random.Range(1, 4);
-        foodAmountText.text = "" + foodAmount; 
+        foodAmountText.text = "" + foodAmount;
+        SnakeHead = GameObject.FindGameObjectWithTag("Head");
+        SnakeTail = SnakeHead.GetComponent<SnakeTail>();
+        SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other == SnakeHead)
+        if(other == SnakeHeadCollider)
         {
             for(int i = foodAmount; i>=1; i--)
             {

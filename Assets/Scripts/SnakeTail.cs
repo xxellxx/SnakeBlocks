@@ -14,7 +14,7 @@ public class SnakeTail : MonoBehaviour
 
     public TextMesh SnakeCountText;
 
-    int snakeCount = 0;
+    int snakeCount = 1;
 
 
     private void Start()

@@ -33,6 +33,7 @@ public class GameManagerScript : MonoBehaviour
         
         if (CurrentState != State.Playing) return;
         CurrentState = State.Loss;
+        PlayerPrefs.SetInt("GM", (int)State.Loss);
         PanelGame.SetActive(false);
         PanelGameOver.SetActive(true);
         PanelStartMenu.SetActive(false);
@@ -53,31 +54,42 @@ public class GameManagerScript : MonoBehaviour
 
     public void OnPlayerStart()
     {
+        CurrentState = (State)PlayerPrefs.GetInt("GM");
         if (CurrentState == State.Start)
         {
             PanelGame.SetActive(true);
             PanelGameOver.SetActive(false);
             PanelStartMenu.SetActive(false);
             CurrentState = State.Playing;
+            PlayerPrefs.SetInt("GM", (int)State.Playing);
             SnakeHead.SetActive(true);
             SnakeCountText.SetActive(true);
         }
         else if(CurrentState == State.Loss)
         {
-            CurrentState = State.Start;
+            //CurrentState = State.Start;
+            //PlayerPrefs.SetInt("GM", (int)State.Start);
             ReloadLevel();
         }
     }
 
     private void Start()
     {
-        if (CurrentState != State.Start) return;
-        PanelGame.SetActive(false);
-        PanelGameOver.SetActive(false);
-        PanelStartMenu.SetActive(true);
-        SnakeHead.SetActive(false);
-        SnakeCountText.SetActive(false);
-
+        CurrentState = (State)PlayerPrefs.GetInt("GM");
+        if (CurrentState == State.Start)
+        {
+            PanelGame.SetActive(false);
+            PanelGameOver.SetActive(false);
+            PanelStartMenu.SetActive(true);
+            SnakeHead.SetActive(false);
+            SnakeCountText.SetActive(false);
+        }
+        else
+        {
+            //OnPlayerStart();
+            PlayerPrefs.SetInt("GM", (int)State.Start);
+            OnPlayerStart();
+        }
 
     }
 }

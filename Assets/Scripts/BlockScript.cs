@@ -9,22 +9,40 @@ public class BlockScript : MonoBehaviour
     public TextMesh blockAmountText;    
     GameObject SnakeHead;
     SnakeTail SnakeTail;
+    GameManagerScript GM;
     //Collider SnakeHeadCollider;
     void Start()
+    {
+        //blockAmount = Random.Range(1, 4);
+        //blockAmountText.text = "" + blockAmount;
+        //SnakeHead = GameObject.FindGameObjectWithTag("Head");
+        //SnakeTail = SnakeHead.GetComponent<SnakeTail>();
+        //GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
+        
+    }
+
+    private void Awake()
     {
         blockAmount = Random.Range(1, 4);
         blockAmountText.text = "" + blockAmount;
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
-        //SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
+        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform == SnakeHead.transform)
-        {
+        {            
             for (int i = blockAmount; i >= 1; i--)
-            {
+            {                
+                if(i >= blockAmount)
+                {
+                    GM.OnPlayerDied();
+                    StartCoroutine(DestroyBlock());
+                    return;
+                }
                 SnakeTail.RemoveCircle();
             }
 

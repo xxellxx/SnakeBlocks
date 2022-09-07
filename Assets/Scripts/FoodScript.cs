@@ -12,6 +12,15 @@ public class FoodScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //foodAmount = Random.Range(1, 4);
+        //foodAmountText.text = "" + foodAmount;
+        //SnakeHead = GameObject.FindGameObjectWithTag("Head");
+        //SnakeTail = SnakeHead.GetComponent<SnakeTail>();
+        //SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
+    }
+
+    private void Awake()
+    {
         foodAmount = Random.Range(1, 4);
         foodAmountText.text = "" + foodAmount;
         SnakeHead = GameObject.FindGameObjectWithTag("Head");

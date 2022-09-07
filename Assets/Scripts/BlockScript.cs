@@ -10,6 +10,7 @@ public class BlockScript : MonoBehaviour
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     GameManagerScript GM;
+
     //Collider SnakeHeadCollider;
     void Start()
     {
@@ -37,7 +38,7 @@ public class BlockScript : MonoBehaviour
         {            
             for (int i = blockAmount; i >= 1; i--)
             {                
-                if(i >= blockAmount)
+                if(i >= SnakeTail.snakeCount)
                 {
                     GM.OnPlayerDied();
                     StartCoroutine(DestroyBlock());

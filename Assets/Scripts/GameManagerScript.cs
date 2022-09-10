@@ -19,6 +19,9 @@ public class GameManagerScript : MonoBehaviour
     public List<GameObject> PlatformPrefabs;
 
     public GameObject FinishPlatform;
+
+    public UnityEngine.UI.Text LevelIndexText;
+    
     
 
     //public Scene PlayScene;
@@ -62,6 +65,8 @@ public class GameManagerScript : MonoBehaviour
         if (CurrentState != State.Playing) return;
         CurrentState = State.Loss;
         PlayerPrefs.SetInt("GM", (int)State.Loss);
+        levelIndex = 1;
+        PlayerPrefs.SetInt("Level", levelIndex);
         PanelGame.SetActive(false);
         PanelGameOver.SetActive(true);
         PanelStartMenu.SetActive(false);
@@ -69,11 +74,17 @@ public class GameManagerScript : MonoBehaviour
 
         SnakeHead.SetActive(false);
         SnakeCountText.SetActive(false);
+        levelIndex = 1;
+        LevelIndexText.text = "Level " + levelIndex;
     }
 
     public void OnPlayerRichedFinish()
     {
-
+        levelIndex++;
+        CurrentState = State.Won;
+        PlayerPrefs.SetInt("Level", levelIndex);
+        PlayerPrefs.SetInt("GM", (int)State.Won);
+        ReloadLevel();
     }
     public void ReloadLevel()
     {
@@ -85,6 +96,8 @@ public class GameManagerScript : MonoBehaviour
         CurrentState = (State)PlayerPrefs.GetInt("GM");
         if (CurrentState == State.Start)
         {
+            levelIndex = PlayerPrefs.GetInt("Level", 1);
+            LevelIndexText.text = "Level " + levelIndex;
             PanelGame.SetActive(true);
             PanelGameOver.SetActive(false);
             PanelStartMenu.SetActive(false);
@@ -99,11 +112,16 @@ public class GameManagerScript : MonoBehaviour
             //PlayerPrefs.SetInt("GM", (int)State.Start);
             ReloadLevel();
         }
+        else if(CurrentState == State.Won)
+        {
+            ReloadLevel();
+        }
     }
 
     private void Start()
     {
         CurrentState = (State)PlayerPrefs.GetInt("GM");
+
         if (CurrentState == State.Start)
         {
             PanelGame.SetActive(false);
@@ -112,9 +130,15 @@ public class GameManagerScript : MonoBehaviour
             SnakeHead.SetActive(false);
             SnakeCountText.SetActive(false);
         }
-        else
+        else if(CurrentState == State.Loss)
         {
             //OnPlayerStart();
+            PlayerPrefs.SetInt("GM", (int)State.Start);
+            OnPlayerStart();
+        }
+        else if(CurrentState == State.Won)
+        {
+            CurrentState = State.Start;
             PlayerPrefs.SetInt("GM", (int)State.Start);
             OnPlayerStart();
         }

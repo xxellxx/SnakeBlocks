@@ -21,12 +21,19 @@ public class GameManagerScript : MonoBehaviour
     public GameObject FinishPlatform;
 
     public UnityEngine.UI.Text LevelIndexText;
-    
-    
+    public UnityEngine.UI.Text ScoreText;
 
-    //public Scene PlayScene;
+    public UnityEngine.UI.Text[] BestScores;
+
+
+
     public State CurrentState;
     public int levelIndex = 1;
+    int score;
+    int bestScore = 0;
+
+
+
     public int maxPlatforms = 3;
     public enum State
     {
@@ -51,9 +58,13 @@ public class GameManagerScript : MonoBehaviour
                 Instantiate(FinishPlatform, new Vector3(0, -0.5f, (0.5f + (i + 1) * 10)), Quaternion.identity);
             }
         }
-            
-         
-        
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        for (int i = 0; i < BestScores.Length; i++)
+        {
+            BestScores[i].text = "Best score " + bestScore;
+        }
+
+
         //for(int i = 0; i<PlatformPrefabs.Count; i++)
         //{
         //    Instantiate(PlatformPrefabs[i], new Vector3(0, -0.5f, (5 + i * 10)), Quaternion.identity);
@@ -76,6 +87,17 @@ public class GameManagerScript : MonoBehaviour
         SnakeCountText.SetActive(false);
         levelIndex = 1;
         LevelIndexText.text = "Level " + levelIndex;
+
+        score = SnakeHead.GetComponent<SnakeTail>().score;
+        if(score > bestScore)
+        {
+            PlayerPrefs.SetInt("BestScore", score);
+            for(int i = 0; i < BestScores.Length; i++)
+            {
+                BestScores[i].text = "Best score " + score;
+            }
+        }
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     public void OnPlayerRichedFinish()
@@ -84,6 +106,7 @@ public class GameManagerScript : MonoBehaviour
         CurrentState = State.Won;
         PlayerPrefs.SetInt("Level", levelIndex);
         PlayerPrefs.SetInt("GM", (int)State.Won);
+        PlayerPrefs.SetInt("Score", SnakeHead.GetComponent<SnakeTail>().score);
         ReloadLevel();
     }
     public void ReloadLevel()
@@ -94,6 +117,7 @@ public class GameManagerScript : MonoBehaviour
     public void OnPlayerStart()
     {
         CurrentState = (State)PlayerPrefs.GetInt("GM");
+
         if (CurrentState == State.Start)
         {
             levelIndex = PlayerPrefs.GetInt("Level", 1);
@@ -102,9 +126,11 @@ public class GameManagerScript : MonoBehaviour
             PanelGameOver.SetActive(false);
             PanelStartMenu.SetActive(false);
             CurrentState = State.Playing;
+            
             PlayerPrefs.SetInt("GM", (int)State.Playing);
             SnakeHead.SetActive(true);
             SnakeCountText.SetActive(true);
+            SnakeHead.GetComponent<SnakeTail>().score = PlayerPrefs.GetInt("Score");
         }
         else if(CurrentState == State.Loss)
         {
@@ -121,6 +147,7 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         CurrentState = (State)PlayerPrefs.GetInt("GM");
+        LevelIndexText.text = "Level " + levelIndex;
 
         if (CurrentState == State.Start)
         {

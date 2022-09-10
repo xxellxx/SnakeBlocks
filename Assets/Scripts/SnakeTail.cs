@@ -18,11 +18,16 @@ public class SnakeTail : MonoBehaviour
 
     public int snakeCount = 1;
 
+    public int score = 0;
+    public UnityEngine.UI.Text scoreText;
+
 
     private void Start()
     {
         positions.Add(SnakeHead.position);
         SnakeCountText.text = snakeCount + "";
+        score = PlayerPrefs.GetInt("Score");
+        scoreText.text = "Score " + score;
 
         AddCircle();
         AddCircle();
@@ -64,6 +69,8 @@ public class SnakeTail : MonoBehaviour
         positions.Add(circle.position);
         snakeCount++;
         SnakeCountText.text = snakeCount + "";
+        score++;
+        scoreText.text = "Score " + score;
     }
 
     public void RemoveCircle()

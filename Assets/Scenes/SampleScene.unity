@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07086cc6a2a6fc645b559ec486224099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.15
+  speed: 0.5
   RigidbodyHead: {fileID: 21483280}
   sensitivity: 50
 --- !u!54 &21483280
@@ -272,6 +272,8 @@ MonoBehaviour:
   circleDiameter: 0.35
   SnakeCountText: {fileID: 1669427557}
   snakeCount: 1
+  score: 0
+  scoreText: {fileID: 621575377}
 --- !u!1 &152414688
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +330,11 @@ MonoBehaviour:
   - {fileID: 4143975500548098475, guid: 0d7a0e2e3f467ec40847a8af0646f5ab, type: 3}
   FinishPlatform: {fileID: 2063098057762218373, guid: 6fa0bbd43dab9a54ca2b517096d7f7af, type: 3}
   LevelIndexText: {fileID: 1517496636}
+  ScoreText: {fileID: 621575377}
+  BestScores:
+  - {fileID: 1571735241}
+  - {fileID: 1913508697}
+  - {fileID: 241926275}
   CurrentState: 0
   levelIndex: 1
   maxPlatforms: 3
@@ -607,7 +614,7 @@ GameObject:
   - component: {fileID: 621575377}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -665,7 +672,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 100'
+  m_Text: 'Score: 0'
 --- !u!222 &621575378
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -846,7 +853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.4910056, y: -0, z: -0, w: 0.87115645}
-  m_LocalPosition: {x: 0, y: 6.14, z: -1.52}
+  m_LocalPosition: {x: 0, y: 8.09, z: -2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -962,7 +969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1053974706
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1250,11 +1257,11 @@ GameObject:
   - component: {fileID: 1234220611}
   m_Layer: 5
   m_Name: PanelGame
-  m_TagString: Untagged
+  m_TagString: PanelGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1234220610
 RectTransform:
   m_ObjectHideFlags: 0

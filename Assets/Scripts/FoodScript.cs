@@ -9,6 +9,10 @@ public class FoodScript : MonoBehaviour
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     Collider SnakeHeadCollider;
+
+    //public GameObject ScoreGameText;    
+    //public int ScorePlay = 0;
+    //string scoreText;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,9 @@ public class FoodScript : MonoBehaviour
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
+        //ScoreGameText = (UnityEngine.UI.Text)GameObject.FindGameObjectWithTag("PanelGame").GetComponent("Score");
+        //ScoreGameText = GameObject.FindGameObjectWithTag("Score");
+        //scoreText = ScoreGameText.GetComponent<UnityEngine.UI.Text>().text;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +42,11 @@ public class FoodScript : MonoBehaviour
             for(int i = foodAmount; i>=1; i--)
             {
                 SnakeTail.AddCircle();
+                //ScorePlay++;
+                //scoreText = "Score " + ScorePlay;
+                
+                //ScoreGameText.GetComponent<UnityEngine.UI.Text>().text = "Score " + ScorePlay;
+                //PlayerPrefs.SetInt("ScorePlay", ScorePlay);                
             }
 
             Destroy(this.gameObject);

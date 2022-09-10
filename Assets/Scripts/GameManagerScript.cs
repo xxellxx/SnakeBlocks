@@ -15,11 +15,16 @@ public class GameManagerScript : MonoBehaviour
     
     public GameObject SnakeHead;
     public GameObject SnakeCountText;
+
+    public List<GameObject> PlatformPrefabs;
+
+    public GameObject FinishPlatform;
     
 
     //public Scene PlayScene;
     public State CurrentState;
-    public int levelIndex = 0;
+    public int levelIndex = 1;
+    public int maxPlatforms = 3;
     public enum State
     {
         Start,
@@ -28,6 +33,29 @@ public class GameManagerScript : MonoBehaviour
         Loss
     }
 
+    private void Awake()
+    {
+        if (levelIndex % 5 == 0 && levelIndex < 30)
+        {
+            maxPlatforms++;
+        }
+        
+        for(int i = 0; i < maxPlatforms; i++)
+        {
+            Instantiate(PlatformPrefabs[Random.Range(0, PlatformPrefabs.Count)], new Vector3(0, -0.5f, (5 + i * 10)), Quaternion.identity);
+            if(i == maxPlatforms - 1)
+            {
+                Instantiate(FinishPlatform, new Vector3(0, -0.5f, (0.5f + (i + 1) * 10)), Quaternion.identity);
+            }
+        }
+            
+         
+        
+        //for(int i = 0; i<PlatformPrefabs.Count; i++)
+        //{
+        //    Instantiate(PlatformPrefabs[i], new Vector3(0, -0.5f, (5 + i * 10)), Quaternion.identity);
+        //}
+    }
     public void OnPlayerDied()
     {        
         

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BlockScript : MonoBehaviour
 {
     // Start is called before the first frame update
     int blockAmount;
-    public TextMesh blockAmountText;    
+    public TextMeshPro blockAmountText;    
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     GameManagerScript GM;

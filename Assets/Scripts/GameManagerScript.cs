@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 //using System.Windows.Controls;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
@@ -20,10 +21,10 @@ public class GameManagerScript : MonoBehaviour
 
     public GameObject FinishPlatform;
 
-    public UnityEngine.UI.Text LevelIndexText;
-    public UnityEngine.UI.Text ScoreText;
+    public TextMeshProUGUI LevelIndexText;
+    public TextMeshProUGUI ScoreText;
 
-    public UnityEngine.UI.Text[] BestScores;
+    public TextMeshProUGUI[] BestScores;
 
 
 

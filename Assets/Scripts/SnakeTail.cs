@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SnakeTail : MonoBehaviour
@@ -14,12 +15,12 @@ public class SnakeTail : MonoBehaviour
 
     public float circleDiameter;
 
-    public TextMesh SnakeCountText;
+    public TextMeshPro SnakeCountText;
 
     public int snakeCount = 1;
 
     public int score = 0;
-    public UnityEngine.UI.Text scoreText;
+    public TextMeshProUGUI scoreText;
 
 
     private void Start()

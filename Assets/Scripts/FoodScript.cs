@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FoodScript : MonoBehaviour
 {
     int foodAmount;
-    public TextMesh foodAmountText;
+    public TextMeshPro foodAmountText;
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     Collider SnakeHeadCollider;

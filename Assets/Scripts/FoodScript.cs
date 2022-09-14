@@ -10,6 +10,7 @@ public class FoodScript : MonoBehaviour
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     Collider SnakeHeadCollider;
+    AudioSource[] audioSourseSH = null; 
 
     //public GameObject ScoreGameText;    
     //public int ScorePlay = 0;
@@ -22,6 +23,7 @@ public class FoodScript : MonoBehaviour
         //SnakeHead = GameObject.FindGameObjectWithTag("Head");
         //SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         //SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
+        //AudioSource audioSourseSH = GetComponent<AudioSource>();
     }
 
     private void Awake()
@@ -31,10 +33,13 @@ public class FoodScript : MonoBehaviour
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
+        audioSourseSH = SnakeHead.GetComponents<AudioSource>();
+
         //ScoreGameText = (UnityEngine.UI.Text)GameObject.FindGameObjectWithTag("PanelGame").GetComponent("Score");
         //ScoreGameText = GameObject.FindGameObjectWithTag("Score");
         //scoreText = ScoreGameText.GetComponent<UnityEngine.UI.Text>().text;
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,7 +54,7 @@ public class FoodScript : MonoBehaviour
                 //ScoreGameText.GetComponent<UnityEngine.UI.Text>().text = "Score " + ScorePlay;
                 //PlayerPrefs.SetInt("ScorePlay", ScorePlay);                
             }
-
+            audioSourseSH[0].Play();
             Destroy(this.gameObject);
         }
     }

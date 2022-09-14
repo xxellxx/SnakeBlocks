@@ -11,6 +11,7 @@ public class BlockScript : MonoBehaviour
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     GameManagerScript GM;
+    AudioSource[] audioSourseSH = null;
 
     //Collider SnakeHeadCollider;
     void Start()
@@ -30,6 +31,7 @@ public class BlockScript : MonoBehaviour
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
+        audioSourseSH = SnakeHead.GetComponents<AudioSource>();
 
     }
 
@@ -47,6 +49,7 @@ public class BlockScript : MonoBehaviour
                 }
                 SnakeTail.RemoveCircle();
             }
+            audioSourseSH[1].Play();
 
             StartCoroutine(DestroyBlock());
         }

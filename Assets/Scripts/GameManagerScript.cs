@@ -88,6 +88,7 @@ public class GameManagerScript : MonoBehaviour
         SnakeCountText.SetActive(false);
         levelIndex = 1;
         LevelIndexText.text = "Level " + levelIndex;
+        //PlayerPrefs.SetInt("Level", 1);
 
         score = SnakeHead.GetComponent<SnakeTail>().score;
         if(score > bestScore)
@@ -148,6 +149,7 @@ public class GameManagerScript : MonoBehaviour
     private void Start()
     {
         CurrentState = (State)PlayerPrefs.GetInt("GM");
+        levelIndex = PlayerPrefs.GetInt("Level", 1);
         LevelIndexText.text = "Level " + levelIndex;
 
         if (CurrentState == State.Start)

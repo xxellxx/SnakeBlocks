@@ -12,6 +12,7 @@ public class BlockScript : MonoBehaviour
     SnakeTail SnakeTail;
     GameManagerScript GM;
     AudioSource[] audioSourseSH = null;
+    ParticleSystem BlockParticle;
 
     //Collider SnakeHeadCollider;
     void Start()
@@ -32,6 +33,8 @@ public class BlockScript : MonoBehaviour
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
         audioSourseSH = SnakeHead.GetComponents<AudioSource>();
+        //BlockParticle = GameObject.Find("ParticleSystemBlock");
+        BlockParticle = Object.FindObjectOfType<ParticleSystem>();
 
     }
 
@@ -50,7 +53,7 @@ public class BlockScript : MonoBehaviour
                 SnakeTail.RemoveCircle();
             }
             audioSourseSH[1].Play();
-
+            BlockParticle.Play();
             StartCoroutine(DestroyBlock());
         }
     }

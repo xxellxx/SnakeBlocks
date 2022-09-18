@@ -33,6 +33,8 @@ public class GameManagerScript : MonoBehaviour
     int score;
     int bestScore = 0;
 
+    public float finishPlatformPositionZ;
+
 
 
     public int maxPlatforms = 3;
@@ -57,6 +59,8 @@ public class GameManagerScript : MonoBehaviour
             if(i == maxPlatforms - 1)
             {
                 Instantiate(FinishPlatform, new Vector3(0, -0.5f, (0.5f + (i + 1) * 10)), Quaternion.identity);
+                finishPlatformPositionZ = (0.5f + (i + 1) * 10 - 1f);
+                Debug.Log("FinishPlatformPositionZ= " + finishPlatformPositionZ);
             }
         }
         bestScore = PlayerPrefs.GetInt("BestScore", 0);

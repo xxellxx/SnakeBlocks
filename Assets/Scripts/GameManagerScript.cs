@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-//using System.Windows.Controls;
 using UnityEngine;
-//using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
 public class GameManagerScript : MonoBehaviour
 {
-    //public Canvas GameCanvas;
+    
     public GameObject PanelStartMenu;
     public GameObject PanelGameOver;
     public GameObject PanelGame;
@@ -67,13 +65,7 @@ public class GameManagerScript : MonoBehaviour
         for (int i = 0; i < BestScores.Length; i++)
         {
             BestScores[i].text = "Best score " + bestScore;
-        }
-
-
-        //for(int i = 0; i<PlatformPrefabs.Count; i++)
-        //{
-        //    Instantiate(PlatformPrefabs[i], new Vector3(0, -0.5f, (5 + i * 10)), Quaternion.identity);
-        //}
+        }        
     }
     public void OnPlayerDied()
     {        
@@ -139,9 +131,7 @@ public class GameManagerScript : MonoBehaviour
             SnakeHead.GetComponent<SnakeTail>().score = PlayerPrefs.GetInt("Score");
         }
         else if(CurrentState == State.Loss)
-        {
-            //CurrentState = State.Start;
-            //PlayerPrefs.SetInt("GM", (int)State.Start);
+        {            
             ReloadLevel();
         }
         else if(CurrentState == State.Won)
@@ -166,7 +156,7 @@ public class GameManagerScript : MonoBehaviour
         }
         else if(CurrentState == State.Loss)
         {
-            //OnPlayerStart();
+            
             PlayerPrefs.SetInt("GM", (int)State.Start);
             OnPlayerStart();
         }

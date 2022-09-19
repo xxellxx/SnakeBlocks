@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BlockScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     int blockAmount;
     public TextMeshPro blockAmountText;    
     GameObject SnakeHead;
@@ -14,16 +14,8 @@ public class BlockScript : MonoBehaviour
     AudioSource[] audioSourseSH = null;
     ParticleSystem BlockParticle;
 
-    //Collider SnakeHeadCollider;
-    void Start()
-    {
-        //blockAmount = Random.Range(1, 4);
-        //blockAmountText.text = "" + blockAmount;
-        //SnakeHead = GameObject.FindGameObjectWithTag("Head");
-        //SnakeTail = SnakeHead.GetComponent<SnakeTail>();
-        //GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
-        
-    }
+   
+    
 
     private void Awake()
     {
@@ -32,8 +24,7 @@ public class BlockScript : MonoBehaviour
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
-        audioSourseSH = SnakeHead.GetComponents<AudioSource>();
-        //BlockParticle = GameObject.Find("ParticleSystemBlock");
+        audioSourseSH = SnakeHead.GetComponents<AudioSource>();        
         BlockParticle = Object.FindObjectOfType<ParticleSystem>();
 
     }

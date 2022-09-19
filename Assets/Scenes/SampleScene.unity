@@ -556,7 +556,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.34
+  m_Value: 0.48
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -573,7 +573,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeHead: {fileID: 21483274}
-  FinishPlatform: {fileID: 5411826646169679588, guid: 6fa0bbd43dab9a54ca2b517096d7f7af, type: 3}
   ProgressSlider: {fileID: 32798760}
   GM: {fileID: 152414690}
 --- !u!1 &152414688
@@ -639,6 +638,7 @@ MonoBehaviour:
   - {fileID: 1757776969}
   CurrentState: 0
   levelIndex: 1
+  finishPlatformPositionZ: 0
   maxPlatforms: 3
 --- !u!1 &332266785
 GameObject:
@@ -1247,8 +1247,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1521561034, guid: 6e1a86b6542a95940a9560555a8d0a99, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7551,8 +7551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
+  m_AnchoredPosition: {x: 1, y: 0}
+  m_SizeDelta: {x: -8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2010424574
 GameObject:
@@ -7590,7 +7590,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2010424576
 MonoBehaviour:
@@ -7612,8 +7612,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -686237617, guid: 6e1a86b6542a95940a9560555a8d0a99, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

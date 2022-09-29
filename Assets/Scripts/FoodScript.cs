@@ -10,7 +10,9 @@ public class FoodScript : MonoBehaviour
     GameObject SnakeHead;
     SnakeTail SnakeTail;
     Collider SnakeHeadCollider;
-    AudioSource[] audioSourseSH = null; 
+    AudioSource[] audioSourseSH = null;
+    Renderer rend;
+
 
     private void Awake()
     {
@@ -19,7 +21,10 @@ public class FoodScript : MonoBehaviour
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         SnakeHeadCollider = SnakeHead.GetComponent<Collider>();
-        audioSourseSH = SnakeHead.GetComponents<AudioSource>();       
+        audioSourseSH = SnakeHead.GetComponents<AudioSource>();
+        rend = GetComponent<Renderer>();
+        float colorSet = Mathf.InverseLerp(3f, 1f, foodAmount);
+        rend.material.SetFloat("_FloatColor", colorSet);
     }
     
 

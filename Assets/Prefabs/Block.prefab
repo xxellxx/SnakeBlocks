@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockAmountText: {fileID: 2935565543053488455}
+  BlockMaterial: {fileID: 2100000, guid: d42f2c3f010af044d9cb5a4fbffed162, type: 2}
 --- !u!54 &8835222754169358146
 Rigidbody:
   m_ObjectHideFlags: 0

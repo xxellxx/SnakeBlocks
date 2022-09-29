@@ -12,7 +12,8 @@ public class BlockScript : MonoBehaviour
     SnakeTail SnakeTail;
     GameManagerScript GM;
     AudioSource[] audioSourseSH = null;
-    ParticleSystem BlockParticle;
+    ParticleSystem BlockParticle;    
+    Renderer rend;
 
    
     
@@ -20,15 +21,19 @@ public class BlockScript : MonoBehaviour
     private void Awake()
     {
         blockAmount = Random.Range(1, 4);
-        blockAmountText.text = "" + blockAmount;
+        blockAmountText.text = "" + blockAmount;        
         SnakeHead = GameObject.FindGameObjectWithTag("Head");
         SnakeTail = SnakeHead.GetComponent<SnakeTail>();
         GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManagerScript>();
         audioSourseSH = SnakeHead.GetComponents<AudioSource>();        
         BlockParticle = Object.FindObjectOfType<ParticleSystem>();
+        float colorSet = Mathf.InverseLerp(3f, 1f, blockAmount);
+        Debug.Log("colorSet= "+colorSet);
+        rend = GetComponent<Renderer>();
+        rend.material.SetFloat("_FloatColor", colorSet);
+        
 
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform == SnakeHead.transform)
